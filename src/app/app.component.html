@@ -10,6 +10,10 @@
           class="form-control"
           id="projectName"
           >
+          <span *ngIf="!projectForm.get('projectName').valid && projectForm.get('projectName').touched" class="help-block"> 
+            <span *ngIf="projectForm.get('projectName').errors['projectNameIsForbidden']">This project name is invalid </span>
+
+          </span>
         </div>
         <div class="formGroup"> 
           <label for="projectName">Email</label>
