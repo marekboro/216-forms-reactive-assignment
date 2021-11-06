@@ -9,7 +9,7 @@ import { FormBuilder, FormArray, FormControl, FormGroup, Validators } from '@ang
 export class AppComponent implements OnInit{
 
 projectForm: FormGroup
-projectStatus = ['Stable', 'Critical','Finished']
+projectStatuses = ['Stable', 'Critical','Finished']
 
 constructor(formBuilder:FormBuilder){}
 

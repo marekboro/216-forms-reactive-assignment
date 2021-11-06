@@ -20,8 +20,15 @@
           id="email"
           >
         </div>
-
-
+        <div class="radio" *ngFor="let status of projectStatuses">
+          <label>
+            <input
+              formControlName="status"
+              type="radio"
+              [value]="status">{{ status }}
+          </label>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
       </form>
       
       
