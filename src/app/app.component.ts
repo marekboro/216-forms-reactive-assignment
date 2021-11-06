@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { CustomValidators } from './cust-validators';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
 
     this.projectForm = new FormGroup({
 
-      'projectName': new FormControl(null, Validators.required, this.forbiddenProjectName),
+      'projectName': new FormControl(null, [Validators.required,CustomValidators.forbiddenProjectName], CustomValidators.forbiddenProjectName2),
       // 'projectName': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'status': new FormControl('Stable')
@@ -39,19 +40,19 @@ export class AppComponent implements OnInit {
   //   }
   // }
 
-  forbiddenProjectName(control: FormControl): Promise<any> | Observable<any> {
-    const promise = new Promise<any>((resolve, reject) => {
-      setTimeout(() => {
-        if (control.value === "Test") {
-          resolve({ 'projectNameIsForbidden': true })
-        }
-        else {
-          resolve(null)
-        }
-      }, 1000);
-    })
-    return promise;
-  }
+  // forbiddenProjectName(control: FormControl): Promise<any> | Observable<any> {
+  //   const promise = new Promise<any>((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (control.value === "Test") {
+  //         resolve({ 'projectNameIsForbidden': true })
+  //       }
+  //       else {
+  //         resolve(null)
+  //       }
+  //     }, 1000);
+  //   })
+  //   return promise;
+  // }
 
 
 }
